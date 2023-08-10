@@ -10,7 +10,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-
 @HiltViewModel
 class EventsListViewModel @Inject constructor(
     private val repository: EventsListRepository,

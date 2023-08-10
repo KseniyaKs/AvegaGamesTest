@@ -4,6 +4,7 @@ import com.example.avegagamestest.data.response.event.EventDetailsResponse
 import com.example.avegagamestest.data.response.leventslist.EventsListResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface Api {
@@ -17,6 +18,7 @@ interface Api {
 
     @GET("v1.4/events/{id}/")
     suspend fun getEventDetails(
-        @Query("fields") fields: String = "title, description, dates, images",
+        @Path("id") id: String,
+        @Query("fields") fields: String = "title,description,body_text,dates,images"
     ): Response<EventDetailsResponse>
 }

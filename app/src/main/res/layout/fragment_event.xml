@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.event.EventFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_with_title_center" />
+
+            <TextView
+                android:id="@+id/text_view_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/roboto_medium_500"
+                android:gravity="start"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:text="Такого праздника вы еще не видели!!! Будет просто класс" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/white"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text_view_available_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_medium_500"
+                android:gravity="start"
+                android:text="@string/available_times_and_dates"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_date_list" />
+
+            <TextView
+                android:id="@+id/text_view_full_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/roboto_regular_400"
+                android:gravity="start"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:text="Праздники - это особенные дни, которые отмечаются людьми по всему миру.
+        Они имеют различное происхождение и связаны с разными культурными традициями.
+        Праздники являются важной частью нашей жизни,
+        они помогают нам отдохнуть от повседневных забот
+         и позволяют нам наслаждаться общением с близкими
+         и друзьями.Один из самых любимых праздников - Новый Год." />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 </FrameLayout>

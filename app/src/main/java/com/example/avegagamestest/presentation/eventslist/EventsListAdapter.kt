@@ -14,7 +14,8 @@ import com.example.avegagamestest.R
 import com.example.avegagamestest.databinding.ItemEventsListBinding
 import com.example.avegagamestest.presentation.model.eventslist.EventItemModel
 
-class EventsListAdapter : PagingDataAdapter<EventItemModel, EventViewHolder>(EventDiffItemCallback) {
+class EventsListAdapter :
+    PagingDataAdapter<EventItemModel, EventViewHolder>(EventDiffItemCallback) {
 
     private var onClickListener: OnItemClickListener? = null
 
@@ -26,9 +27,11 @@ class EventsListAdapter : PagingDataAdapter<EventItemModel, EventViewHolder>(Eve
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-        holder.bind(getItem(position))
-        holder.itemView.setOnClickListener {
-            onClickListener?.onItemClick(holder)
+        getItem(position).apply {
+            holder.bind(this)
+            holder.itemView.setOnClickListener {
+                onClickListener?.onItemClick(this)
+            }
         }
     }
 
@@ -37,7 +40,7 @@ class EventsListAdapter : PagingDataAdapter<EventItemModel, EventViewHolder>(Eve
     }
 
     interface OnItemClickListener {
-        fun onItemClick(item: EventViewHolder?)
+        fun onItemClick(item: EventItemModel?)
     }
 }
 
@@ -52,7 +55,7 @@ class EventViewHolder(
             Glide.with(view.context)
                 .load(event?.image)
                 .transform(CenterCrop(), RoundedCorners(30))
-                .placeholder(R.drawable.item_placeholder)
+                .placeholder(R.drawable.img_placeholder)
                 .into(imageViewImage)
 
             textViewTitle.text = event?.title

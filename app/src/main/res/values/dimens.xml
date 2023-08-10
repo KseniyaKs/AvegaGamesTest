@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="name_city_title_size">34sp</dimen>
+    <dimen name="toolbar_size">56dp</dimen>
+    <dimen name="toolbar_title_size">18sp</dimen>
+    <dimen name="iten_events_list_height">230dp</dimen>
+</resources>

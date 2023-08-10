@@ -2,4 +2,7 @@
     <string name="app_name">AvegaGamesTest</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="moscow_events">События Москвы</string>
+    <string name="show_more">Смотреть полное описание…</string>
+    <string name="collapse_description">Свернуть описание</string>
+    <string name="available_times_and_dates">Доступное время и даты:</string>
 </resources>
